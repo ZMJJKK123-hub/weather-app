@@ -1,6 +1,7 @@
 from src.weather.api_client import get_weather_data
 from src.weather.data_parser import parse_weather_data
 from src.weather.multy_city import  get_multiple_city_data, display_cities_comparison
+import time
 
 
 def display_weather(weather_info):
@@ -56,6 +57,9 @@ def multi_city_mode():
     weather_list = get_multiple_city_data(city_list)
     display_cities_comparison(weather_list)
 
+def wait_for_enter():
+    input("\n按 Enter 键继续...")
+
 def main():
     print("=== 天气预报应用 ===")
 
@@ -74,6 +78,10 @@ def main():
             break
         else:
             print("❌ 无效选择，请输入 1-3")
+
+        wait_for_enter()
+
+
 
 
 if __name__ == "__main__":

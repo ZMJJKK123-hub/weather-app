@@ -4,9 +4,18 @@ import json
 
 
 class WeatherCache:
-    def __init__(self, cache_file='data/processed/weather_cache.json', ttl=600):
+    def __init__(self, cache_file=None, ttl=600):
+        # 自动计算正确的缓存文件路径
+        if cache_file is None:
+            # 获取当前文件的绝对路径
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            # 向上两级到 weather-app 目录
+            project_root = os.path.dirname(os.path.dirname(current_dir))
+            # 构建正确的缓存文件路径
+            cache_file = os.path.join(project_root, 'data', 'processed', 'weather_cache.json')
+
         self.cache_file = cache_file
-        self.ttl = ttl  # 缓存有效期（秒），10分钟
+        self.ttl = ttl
         self._ensure_cache_dir()
 
     def _ensure_cache_dir(self):

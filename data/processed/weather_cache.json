@@ -1,0 +1,98 @@
+{
+  "beijing": [
+    {
+      "coord": {
+        "lon": 116.3972,
+        "lat": 39.9075
+      },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "多云",
+          "icon": "03n"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 9.94,
+        "feels_like": 7.37,
+        "temp_min": 9.94,
+        "temp_max": 9.94,
+        "pressure": 1025,
+        "humidity": 19,
+        "sea_level": 1025,
+        "grnd_level": 1021
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 5.39,
+        "deg": 310,
+        "gust": 11.15
+      },
+      "clouds": {
+        "all": 38
+      },
+      "dt": 1763560566,
+      "sys": {
+        "type": 1,
+        "id": 9609,
+        "country": "CN",
+        "sunrise": 1763507023,
+        "sunset": 1763542565
+      },
+      "timezone": 28800,
+      "id": 1816670,
+      "name": "Beijing",
+      "cod": 200
+    },
+    1763561153.6805346
+  ],
+  "nanjing": [
+    {
+      "coord": {
+        "lon": 118.7778,
+        "lat": 32.0617
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "晴",
+          "icon": "01n"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 7.28,
+        "feels_like": 6.45,
+        "temp_min": 7.28,
+        "temp_max": 7.28,
+        "pressure": 1031,
+        "humidity": 42,
+        "sea_level": 1031,
+        "grnd_level": 1028
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 1.58,
+        "deg": 259,
+        "gust": 2.08
+      },
+      "clouds": {
+        "all": 0
+      },
+      "dt": 1763561323,
+      "sys": {
+        "country": "CN",
+        "sunrise": 1763505429,
+        "sunset": 1763543015
+      },
+      "timezone": 28800,
+      "id": 1799962,
+      "name": "Nanjing",
+      "cod": 200
+    },
+    1763561338.9466188
+  ]
+}
