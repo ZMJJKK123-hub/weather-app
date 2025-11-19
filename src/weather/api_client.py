@@ -1,5 +1,8 @@
 import requests
 from config.settings import API_KEY, BASE_URL
+from src.weather.cache import WeatherCache
+
+cache=WeatherCache()
 
 
 def get_weather_data(city_name):
@@ -7,6 +10,11 @@ def get_weather_data(city_name):
 
     if not city_name or not city_name.strip():
         return {'error': '城市名称不能为空'}
+
+    cache_data = cache.get(city_name)
+    if cache_data:
+        print(f"📦 使用缓存数据: {city_name}")
+        return cache_data
 
 
     params = {
@@ -21,7 +29,10 @@ def get_weather_data(city_name):
 
         # 处理不同的HTTP状态码
         if response.status_code == 200:
-            return response.json()
+            data = response.json()
+            cache.set(city_name, data)
+            return data
+
         elif response.status_code == 401:
             return {'error': 'API密钥无效，请检查配置'}
         elif response.status_code == 404:
