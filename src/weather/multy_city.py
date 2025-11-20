@@ -1,4 +1,5 @@
 from src.weather import api_client,data_parser
+from .display_utils import print_header, print_weather_icon, format_temperature
 
 def get_multiple_city_data(city_list):
     #获取多个城市数据
@@ -15,9 +16,7 @@ def get_multiple_city_data(city_list):
 
 def display_cities_comparison(weather_list):
     """并排显示多个城市天气对比"""
-    print("\n" + "=" * 80)
-    print("🏙️  多城市天气对比")
-    print("=" * 80)
+    print_header("多城市天气对比")
 
     # 表头
     headers = ["城市", "温度", "天气", "湿度", "风速"]
@@ -26,8 +25,11 @@ def display_cities_comparison(weather_list):
 
     for weather in weather_list:
         if 'error' in weather:
-            print(f"❌ {weather['city']}: {weather['error']}")
+            print(f"❌ {weather.get('city', '未知城市')}: {weather['error']}")
         else:
-            print(f"🌍 {weather['city']:<8} {weather['temperature']}°C    "
-                  f"{weather['description']:<10} {weather['humidity']}%     "
+            icon = weather.get('icon', '🌡️')
+            temp_display = weather.get('temp_display', f"{weather['temperature']}°C")
+
+            print(f"{icon} {weather['city']:<8} {weather['description']:<10} "
+                  f"{temp_display:<12} {weather['humidity']}%     "
                   f"{weather['wind_speed']}m/s")

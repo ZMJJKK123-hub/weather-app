@@ -1,7 +1,7 @@
 from src.weather.api_client import get_weather_data
 from src.weather.data_parser import parse_weather_data
 from src.weather.multy_city import  get_multiple_city_data, display_cities_comparison
-import time
+from src.weather.display_utils import clear_screen, print_header, print_success, print_error
 
 
 def display_weather(weather_info):
@@ -9,14 +9,41 @@ def display_weather(weather_info):
     if not weather_info:
         print("无法获取天气信息")
         return
+    print_header(f"{weather_info['city']} 实时天气")
 
-    print(f"\n=== {weather_info['city']} 天气 ===")
-    print(f"温度: {weather_info['temperature']}°C")
-    print(f"体感温度: {weather_info['feels_like']}°C")
-    print(f"天气: {weather_info['description']}")
-    print(f"湿度: {weather_info['humidity']}%")
-    print(f"气压: {weather_info['pressure']} hPa")
-    print(f"风速: {weather_info['wind_speed']} m/s")
+    print(f"{weather_info['icon']}  {weather_info['description']:12} {weather_info['temp_display']:>15}")
+    print(f"🤔 体感温度: {weather_info['feels_like']}°C")
+    print(f"💧 湿度: {weather_info['humidity']}%")
+    print(f"📊 气压: {weather_info['pressure']} hPa")
+    print(f"💨 风速: {weather_info['wind_speed']} m/s")
+
+    # 添加舒适度提示
+    try:
+        temp = float(weather_info['temperature'])
+        if temp < 0:
+            print("💡 提示: 天气寒冷，注意保暖！")
+        elif temp > 30:
+            print("💡 提示: 天气炎热，注意防暑！")
+    except (ValueError, TypeError):
+        pass
+
+def show_welcome():
+    """显示欢迎画面"""
+    clear_screen()
+    print_header("欢迎使用天气预报应用")
+    print("✨ 功能特点:")
+    print("   • 实时天气查询")
+    print("   • 多城市对比")
+    print("   • 智能缓存加速")
+    print("   • 美观的界面显示")
+    print("\n🎯 数据来源: OpenWeatherMap")
+
+
+def confirm_exit():
+    """退出确认"""
+    choice = input("\n确定要退出吗？(y/N): ").strip().lower()
+    return choice in ['y', 'yes', '是']
+
 
 def show_menu():
     """显示主菜单"""
@@ -61,7 +88,7 @@ def wait_for_enter():
     input("\n按 Enter 键继续...")
 
 def main():
-    print("=== 天气预报应用 ===")
+    show_welcome()
 
 
 
@@ -74,8 +101,11 @@ def main():
         elif choice == '2':
             multi_city_mode()
         elif choice == '3':
-            print("👋 感谢使用天气预报应用！")
-            break
+            if confirm_exit():
+                print_success("感谢使用天气预报应用！再见！👋")
+                break
+            else:
+                continue
         else:
             print("❌ 无效选择，请输入 1-3")
 

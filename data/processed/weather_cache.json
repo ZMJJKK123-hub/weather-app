@@ -94,5 +94,100 @@
       "cod": 200
     },
     1763561338.9466188
+  ],
+  "hainan": [
+    {
+      "coord": {
+        "lon": 102.3103,
+        "lat": 27.8003
+      },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "多云",
+          "icon": "04d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 12.79,
+        "feels_like": 12.14,
+        "temp_min": 12.79,
+        "temp_max": 12.79,
+        "pressure": 1021,
+        "humidity": 77,
+        "sea_level": 1021,
+        "grnd_level": 794
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 1.04,
+        "deg": 305,
+        "gust": 1.03
+      },
+      "clouds": {
+        "all": 73
+      },
+      "dt": 1763621758,
+      "sys": {
+        "country": "CN",
+        "sunrise": 1763595352,
+        "sunset": 1763633827
+      },
+      "timezone": 28800,
+      "id": 1789647,
+      "name": "Hainan",
+      "cod": 200
+    },
+    1763621774.5457966
+  ],
+  "shanghai": [
+    {
+      "coord": {
+        "lon": 121.4581,
+        "lat": 31.2222
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "晴",
+          "icon": "01d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 14.92,
+        "feels_like": 13.22,
+        "temp_min": 14.92,
+        "temp_max": 14.92,
+        "pressure": 1027,
+        "humidity": 29,
+        "sea_level": 1027,
+        "grnd_level": 1026
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 2,
+        "deg": 350
+      },
+      "clouds": {
+        "all": 0
+      },
+      "dt": 1763621392,
+      "sys": {
+        "type": 1,
+        "id": 9659,
+        "country": "CN",
+        "sunrise": 1763591140,
+        "sunset": 1763628846
+      },
+      "timezone": 28800,
+      "id": 1796236,
+      "name": "Shanghai",
+      "cod": 200
+    },
+    1763621775.0449321
   ]
 }
