@@ -1,0 +1,8 @@
+{
+  "favorite_cities": [
+    "london"
+  ],
+  "default_city": "北京",
+  "temperature_unit": "celsius",
+  "theme": "default"
+}
